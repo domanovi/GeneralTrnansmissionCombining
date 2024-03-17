@@ -2,8 +2,9 @@
 # Description
 The file GeneralTrnansmissionCombining.m contains a function that generates the real part of both the transmission and combining matrices for a $N_t\times N_r$ multi-hop MIMO channel.
 The function outpus 
-1. transmitMatrixMIMO which is a symbolic matrix that holds half of the transmission matrix. The full trnanmission matrix is transmitMatrix=[transmitMatrixMIMOReal;conj(transmitMatrixMIMOReal)].
-2. combMatReal which is a symbolc matrix that holds the half of the combining matrix. The full combining matrix is combMat=[combMatReal;conj(combMatReal)].
+1. transmitMatrixMIMO which is a symbolic matrix that holds half of the transmission matrix. The full trnanmission matrix is
+$transmitMatrix=\begin{bmatrix} transmitMatrixMIMOReal \\ conj(transmitMatrixMIMOReal) \end{bmatrix}
+3. combMatReal which is a symbolc matrix that holds the half of the combining matrix. The full combining matrix is combMat=[combMatReal;conj(combMatReal)].
 
 # Output Example
 1. N_t=N_r=2
