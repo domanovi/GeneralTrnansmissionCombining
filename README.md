@@ -1,20 +1,25 @@
 # GeneralTrnansmissionCombining
 # Description
-The file GeneralTrnansmissionCombining.m contains a function that generates the real part of both the transmission and combining matrices for a $N_t\times N_r$ multi-hop MIMO channel.
-The function outpus 
-1. **transmitMatrixMIMO** which is a symbolic matrix that holds half of the transmission matrix. We note that the transmission matrix is composed of $\rho(N_t\times N_r)$ information symbols where $\rho(n)$ is the Hurwitz-Radon number (of a rate $1/2$ OSTBC for MISO with $N_t\times N_r$ transmit antennas). The full trnanmission matrix is
+The Matlab file GeneralTrnansmissionCombining.m contains a function that generates the real part of both the transmission and combining matrices for a $N_t\times N_r$ multi-hop MIMO channel.
+
+The inputs to the function are
+1. $N_t$ = number of transmit antennas (assuming the same number over all hops)
+2. $N_r$ = number of receive antennas (assuming the same number over all hops)
+3. A flag called **plotDebugFlag** that plots interim results such as the rate $1/2$ OSTBC of the $(N_t\times N_r)\times 1$ MISO channel for which the transmission-combining scheme is equivalent to.
+
+The function outputs 
+1. **transmitMatrixMIMO** which is a symbolic matrix that holds half of the transmission matrix. We note that the transmission matrix is composed of $\rho(N_t\times N_r)$ information symbols where $\rho(n)$ is the Hurwitz-Radon number (of a rate $1/2$ OSTBC for MISO with $N_t\times N_r$ transmit antennas). The full transmission matrix is
 
 $$ transmitMatrix = \begin{bmatrix} 
    transmitMatrixMIMOReal \\
    conj(transmitMatrixMIMOReal)
    \end{bmatrix} $$
 
-2. **combMatReal** which is a symbolc matrix that holds the half of the combining matrix. Entry $y_{i,j}$ means taking the output of antenna $j$ that was recieved at time $i$. The full combining matrix is composed of stacking combMatReal with an identical matrix in which $y_{i,j^*}=y_{i,j+\rho(N_t\times N_r)}$
-   
-3. The function has a flag called **plotDebugFlag** that plots interim results such as the rate $1/2$ for the $(N_t\times N_r)\times 1$ OSTBC channel for which the transmission-combining scheme is equivalant to.
-4. The function does not provide the power normalization required to meet any power constraints.
+2. **combMatReal** is a symbolic matrix holding half of the combining matrix. Entry $y_{i,j}$ means taking the output of antenna $j$ that was received at time $i$. The full combining matrix is composed of stacking combMatReal with an identical matrix in which $y_{i,j^*}=y_{i,j+\rho(N_t\times N_r)}$
+
+Note that the function does not provide the power normalization required to meet any power constraints.
   
-# Output Example
+# Output Examples
 1. N_t=N_r=2
 
 $$ transmitMatrixMIMOReal = \begin{bmatrix}
